@@ -54,6 +54,8 @@ public class TopicsConsumer implements Runnable {
                     tweetsQueue.add(new Tweet(receivedTopic,content ));
 
                     // Added Thread sleep to avoid Twitter API rate limit
+                    // Also use Twitter Rate limit Exception to dynamically put the
+                    // thread to sleep and retry
                     Thread.sleep(5000);
                     // loop through the tweets via results pagination using nextQuery
                     query = result.nextQuery();
